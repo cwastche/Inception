@@ -4,3 +4,4 @@
 # PID 1 + dockerfiles good practice
 # 2 users, 1 of Admin (no admin inside username !)
 # Only entry point NGINX  port 443 using protocol TLSv1.2 or TLSv1.3.
+# Must restart if crash
