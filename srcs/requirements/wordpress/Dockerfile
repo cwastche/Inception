@@ -5,7 +5,7 @@ FROM debian:buster
 
 RUN	apt-get update && apt-get -y install \
 	# wget \
-	# curl \
+	curl \
 	# bash \
 	# php \
 	# php-cgi \
