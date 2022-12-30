@@ -8,7 +8,8 @@ FROM debian:buster
 RUN apt-get update 
 
 #Installs nginx and openssl
-RUN apt-get install -y nginx openssl
+RUN apt-get install -y	nginx \
+						openssl
 
 #Create CSR (Certificate Signing Request)
 RUN mkdir /etc/nginx/ssl
@@ -21,7 +22,7 @@ RUN openssl req -new -newkey rsa:2048 -nodes \
 COPY ./conf/nginx.conf /etc/nginx/conf.d
 
 #?
-#RUN mkdir -p /run/nginx
+RUN mkdir -p /run/nginx
 
 #Container listens on specified network port at runtime
 #Uses TCP by default

@@ -9,7 +9,7 @@ RUN	apt-get update && apt-get -y install \
 	# bash \
 	# php \
 	# php-cgi \
-	# php-mysql \
+	php-mysql \
 	php-fpm
 	# php-pdo \
 	# php-gd php-cli \
@@ -21,7 +21,7 @@ RUN	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 
 # COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d/
 
-# RUN mkdir /run/php
+RUN mkdir /run/php
 
 COPY ./tools/create_wordpress.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/create_wordpress.sh
