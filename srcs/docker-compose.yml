@@ -10,22 +10,22 @@ services:
     build: ./requirements/nginx
     ports:
       - 443:443 
-    # volumes:
-    #   - wordpress_data:/var/www/html
+    volumes:
+      - wordpress_data:/var/www/html
     restart: always
     networks:
       - network
 
   wordpress:
     container_name: wordpress
-    # depends_on:
-    #   mariadb:
-    #     condition: service_healthy
+    depends_on:
+      mariadb:
+        condition: service_healthy
     build: ./requirements/wordpress
       # context: ./requirements/wordpress
       # dockerfile: Dockerfile
-    # volumes:
-    #   - wordpress_data:/var/www/html
+    volumes:
+      - wordpress_data:/var/www/html
     restart: always
     networks:
       - network
@@ -38,8 +38,8 @@ services:
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "--silent"]
       start_period: 20s
-    # volumes:
-    #   - mariadb_data:/var/lib/mysql
+    volumes:
+      - mariadb_data:/var/lib/mysql
     restart: always
     networks:
       - network
@@ -49,16 +49,16 @@ services:
 volumes:
   mariadb_data:
     driver: local
-    # driver_opts:
-    #   type: none
-    #   # device: /home/cwastche/data/mysql
-    #   o: bind
+    driver_opts:
+      type: none
+      device: /home/cwastche/data/mysql
+      o: bind
   wordpress_data:
     driver: local
-    # driver_opts:
-    #   type: none
-    #   device: /home/cwastche/data/wordpress
-    #   o: bind
+    driver_opts:
+      type: none
+      device: /home/cwastche/data/wordpress
+      o: bind
 
 networks:
   network:
