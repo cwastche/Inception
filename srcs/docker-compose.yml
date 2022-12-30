@@ -7,51 +7,51 @@ services:
     build: ./requirements/nginx
     ports:
       - 443:443
-    volumes:
-      - wordpress_data:/var/www/html
+    # volumes:
+    #   - wordpress_data:/var/www/html
     restart: always
     networks:
       - network
 
-  mariadb:
-    container_name: mariadb
-    build: ./requirements/mariadb
-    volumes:
-      - mariadb_data:/var/lib/mysql
-    restart: always
-    networks:
-      - network
-    env_file:
-      - .env
+  # mariadb:
+  #   container_name: mariadb
+  #   build: ./requirements/mariadb
+  #   volumes:
+  #     - mariadb_data:/var/lib/mysql
+  #   restart: always
+  #   networks:
+  #     - network
+  #   env_file:
+  #     - .env
   
-  wordpress:
-    container_name: wordpress
-    depends_on:
-      - mariadb
-    build: ./requirements/wordpress
-      # context: ./requirements/wordpress
-      # dockerfile: Dockerfile
-    volumes:
-      - wordpress_data:/var/www/html
-    restart: always
-    networks:
-      - network
-    env_file:
-      - .env
+  # wordpress:
+  #   container_name: wordpress
+  #   depends_on:
+  #     - mariadb
+  #   build: ./requirements/wordpress
+  #     # context: ./requirements/wordpress
+  #     # dockerfile: Dockerfile
+  #   volumes:
+  #     - wordpress_data:/var/www/html
+  #   restart: always
+  #   networks:
+  #     - network
+  #   env_file:
+  #     - .env
 
-volumes:
-  mariadb_data:
-    driver: local
-    driver_opts:
-      type: none
-      device: /home/cwastche/data/mysql
-      o: bind
-  wordpress_data:
-    driver: local
-    driver_opts:
-      type: none
-      device: /home/cwastche/data/wordpress
-      o: bind
+# volumes:
+#   mariadb_data:
+#     driver: local
+#     driver_opts:
+#       type: none
+#       device: /home/cwastche/data/mysql
+#       o: bind
+#   wordpress_data:
+#     driver: local
+#     driver_opts:
+#       type: none
+#       device: /home/cwastche/data/wordpress
+#       o: bind
 
 networks:
   network:
