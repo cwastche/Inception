@@ -55,10 +55,10 @@ volumes:
     #   o: bind
   wordpress_data:
     driver: local
-    driver_opts:
-      type: none
-      device: /home/cwastche/data/wordpress
-      o: bind
+    # driver_opts:
+    #   type: none
+    #   device: /home/cwastche/data/wordpress
+    #   o: bind
 
 networks:
   network:
