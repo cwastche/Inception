@@ -21,7 +21,6 @@ RUN openssl req -new -newkey rsa:2048 -nodes \
 #Copies our conf to nginx conf
 COPY ./conf/nginx.conf /etc/nginx/conf.d
 
-#?
 RUN mkdir -p /run/nginx
 
 #Container listens on specified network port at runtime
