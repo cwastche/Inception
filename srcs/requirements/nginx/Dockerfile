@@ -14,8 +14,8 @@ RUN apt-get install -y	nginx \
 #Create CSR (Certificate Signing Request)
 RUN mkdir /etc/nginx/ssl
 RUN openssl req -new -newkey rsa:2048 -nodes \
-	-out cwastche.csr \
-	-keyout cwastche.key \
+	-out /etc/nginx/ssl/cwastche.csr \
+	-keyout /etc/nginx/ssl/cwastche.key \
 	-subj "/C=BE/ST=Brussels/L=BRU/O=42/OU=cwastche/CN=cwastche"
 
 #Copies our conf to nginx conf
