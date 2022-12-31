@@ -13,6 +13,7 @@ else
 # Set root option so that connexion without root password is not possible
 
 mysql_secure_installation << _EOF_
+n
 Y
 1234
 1234
