@@ -11,6 +11,8 @@ RUN apt-get update
 RUN apt-get install -y	nginx \
 						openssl
 
+						
+
 #Create CSR (Certificate Signing Request)
 RUN mkdir /etc/nginx/ssl
 RUN openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes \ 
