@@ -18,8 +18,8 @@ services:
 
   wordpress:
     container_name: wordpress
-    # depends_on:
-    #   mariadb:
+    depends_on:
+      -mariadb
     #     condition: service_healthy
     build: 
       #./requirements/wordpress
