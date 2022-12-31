@@ -2,8 +2,8 @@
 
 #check if wp-config.php exist
 if [ -f ./wp-config.php ]
-then
-	echo "wordpress already downloaded"
+	then
+		echo "wordpress already downloaded"
 else
 	#Download wordpress and all config file
 	wget http://wordpress.org/latest.tar.gz
@@ -18,3 +18,5 @@ else
 	sed -i "s/database_name_here/$MYSQL_DATABASE/g" wp-config-sample.php
 	cp wp-config-sample.php wp-config.php
 fi
+
+exec "$@"

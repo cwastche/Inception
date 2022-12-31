@@ -3,7 +3,7 @@
 #Specifies parent img from which we are building
 FROM debian:buster
 
-RUN	apt-get update && apt-get -y install \
+RUN apt-get update && apt-get -y install \
 	wget \
 	curl \
 	bash \
@@ -13,7 +13,8 @@ RUN	apt-get update && apt-get -y install \
 	php-fpm \
 	php-pdo \
 	php-gd php-cli \
-	php-mbstring
+	php-mbstring \
+	&& rm -rf /var/lib/apt/lists/*
 
 RUN	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
 	&& chmod +x wp-cli.phar \
