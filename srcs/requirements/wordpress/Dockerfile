@@ -1,6 +1,4 @@
-#WORDPRESS: content management system (CMS) written in PHP that uses a MySQL database. Used to create a website
-
-#Specifies parent img from which we are building
+#WORDPRESS: content management system (CMS) written in PHP that uses a MySQL database
 FROM debian:buster
 
 RUN apt-get update && apt-get -y install \
