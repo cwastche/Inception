@@ -15,4 +15,4 @@ clean:
 	docker volume rm $$(docker volume ls -q); \
 	docker network rm $$(docker network ls -q);
 
-.PHONY: all
+.PHONY: all down re clean

@@ -14,7 +14,7 @@ services:
       - wordpress_data:/var/www/html
     restart: always
     networks:
-      - network
+      - docker-network
 
   wordpress:
     container_name: wordpress
@@ -29,7 +29,7 @@ services:
       - wordpress_data:/var/www/html
     restart: always
     networks:
-      - network
+      - docker-network
     env_file:
       - .env
 
@@ -43,7 +43,7 @@ services:
       - mariadb_data:/var/lib/mysql
     restart: always
     networks:
-      - network
+      - docker-network
     env_file:
       - .env
 
@@ -62,5 +62,5 @@ volumes:
       o: bind
 
 networks:
-  network:
+  docker-network:
     driver: bridge
